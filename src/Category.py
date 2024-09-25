@@ -28,4 +28,4 @@ class Category:
         return str_products
 
     def __str__(self) -> str:
-        return f"{self.name}, количество продуктов: {self.product_count} шт."
+        return f"{self.name}, количество продуктов: {Category.product_count} шт."
