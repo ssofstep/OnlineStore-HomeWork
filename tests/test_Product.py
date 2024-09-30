@@ -31,3 +31,11 @@ def test_new_product(class_product: Product) -> None:
 def test_price(class_product: Product, price1: float, price2: float) -> None:
     class_product.price = price1
     assert class_product.price == price2
+
+
+def test_str(class_product: Product) -> None:
+    assert class_product.__str__() == "Iphone 15, 210000.0 руб. Остаток: 8 шт."
+
+
+def test_add(class_product: Product) -> None:
+    assert class_product.__add__(Product("Xiaomi", "1024GB", 31000.0, 14)) == 2114000.0
