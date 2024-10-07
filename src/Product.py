@@ -1,16 +1,22 @@
 from typing import Any
 
+from src.BaseProduct import BaseProduct
+from src.PrintMixin import PrintMixin
 
-class Product:
+
+class Product(PrintMixin, BaseProduct):
     """Класс, который представляет продукты"""
 
     def __init__(self, name: str, description: str, price: float, quantity: int, color: str):
         """Метод, который инициализирует экземпляры класса"""
+        if quantity <= 0:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
         self.name = name
         self.description = description
         self.__price = price
         self.quantity = quantity
         self.color = color
+        super().__init__()
 
     @classmethod
     def new_product(cls, product_dict: dict) -> "Product":
