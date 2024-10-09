@@ -46,3 +46,12 @@ def test_products(class_category: Category) -> None:
 
 def test_str(class_category: Category) -> None:
     assert class_category.__str__() == "Смартфоны, количество продуктов: 13 шт."
+
+
+def test_middle_price(class_category: Category) -> None:
+    assert class_category.middle_price() == 140333.33333333334
+
+
+def test_middle_price_error() -> None:
+    category = Category("Пустая категория", "Категория без продуктов", [])
+    assert category.middle_price() == 0
